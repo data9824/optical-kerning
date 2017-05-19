@@ -8,6 +8,10 @@ This jQuery plugin enables you to apply optical kerning for any text in any font
 
 ![Screenshot](https://raw.githubusercontent.com/data9824/optical-kerning/master/demo/screenshot.png)
 
+* [Demo #1](https://data9824.github.io/optical-kerning/demo/demo1.html)
+* [Demo #2](https://data9824.github.io/optical-kerning/demo/demo2.html)
+* [Demo #3](https://data9824.github.io/optical-kerning/demo/demo3.html)
+
 ## Usage
 
 ### Browser
@@ -50,7 +54,7 @@ $('.any-selector-you-want').kerning({
 
 When you use web fonts, you need to (re-)apply kerning after downloading fonts. You can use [Web Font Loader](https://github.com/typekit/webfontloader) to get notified when the fonts have been loaded. See the following example.
 
-Webフォントを利用する際には、フォントをダウンロードした後にカーニングを適用する必要があります。フォントがロードされた時に通知を受けるために、[Web Font Loader](https://github.com/typekit/webfontloader)を利用できます。以下の例をご参照ください。
+Webフォントを利用する際には、フォントをダウンロードした後にカーニングを（再）適用する必要があります。フォントがロードされた時に通知を受けるために、[Web Font Loader](https://github.com/typekit/webfontloader)を利用できます。以下の例をご参照ください。
 
 ```javascript
 function update() {
