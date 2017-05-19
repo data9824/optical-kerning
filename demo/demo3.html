@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<script src="https://code.jquery.com/jquery-1.12.4.js" type="text/javascript"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+    <script src="../optical-kerning.js" type="text/javascript"></script>
+	<link href="https://fonts.googleapis.com/earlyaccess/mplus1p.css" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/earlyaccess/notosansjapanese.css" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css" rel="stylesheet" />
+	<style type="text/css">
+		body {
+			margin: 0;
+			padding: 0;
+		}
+		main {
+			line-height: 1.5em;
+		}
+		table {
+			table-layout: fixed;
+			width: 100%;
+		}
+		th {
+			font-weight: normal;
+		}
+		td {
+			vertical-align: top;
+		}
+		.sample1 {
+			font-size: 1.5em;
+			line-height: 1.5em;
+		}
+		.sample2 {
+		}
+		.plain {
+			font-feature-settings : "pwid" 1, "kern" 1;
+		}
+		.mplus1p {
+			font-family: "Mplus 1p";
+			font-weight: 400;
+			font-style: normal;
+		}
+		.notosans {
+			font-family: "Noto Sans Japanese";
+			font-weight: 400;
+			font-style: normal;
+		}
+		.sawarabimincho {
+			font-family: "Sawarabi Mincho";
+			font-weight: 400;
+			font-style: normal;
+		}
+		.meiryo {
+			font-family: Meiryo;
+		}
+		.yugothic {
+			font-family: "Yu Gothic", YuGothic;
+		}
+		.row-header {
+			background-color: #888888;
+			color: #ffffff;
+			text-align: center;
+		}
+	</style>
+	<script type="text/javascript">
+		$(function() {
+			function update() {
+				$('.kerned').kerning({
+					exclude: [[0x00, 0xFF]]
+				});
+				$('.strong-kerned').kerning({
+					factor: 1.0,
+					exclude: [[0x00, 0xFF]]
+				});
+			}
+			WebFont.load({
+				custom: {
+					families: [ 'Mplus 1p:n4', 'Noto Sans Japanese:n4', 'Sawarabi Mincho:n4' ]
+				},
+				fontactive: function(familyName, fvd) {
+					update();
+				}
+			});
+			$('.sample').append($('<div class="sample1"></div><div class="sample2"></div>'))
+			$('.sample1').text('ダイニング')
+			$('.sample2').text('タイポグラフィの手法の一つとして、文字の間隔を調整して、文字の形状から生じる間隔の不揃いを無くす、「カーニング」(Kerning)があります。');
+		});
+	</script>
+</head>
+<body>
+	<main>
+		<table>
+			<thead>
+				<th class="mplus1p">Mplus 1p</th>
+				<th class="notosans">Noto Sans Japanese</th>
+				<th class="sawarabimincho">Sawarabi Mincho</th>
+				<th class="meiryo">Meiryo</th>
+				<th class="yugothic">Yu Gothic</th>
+			</thead>
+			<tbody>
+				<tr>
+					<td colspan="5" class="row-header">
+						optical-kerning.js not applied
+					</td>
+				</tr>
+				<tr class="plain">
+					<td class="sample mplus1p"></td>
+					<td class="sample notosans"></td>
+					<td class="sample sawarabimincho"></td>
+					<td class="sample meiryo"></td>
+					<td class="sample yugothic"></td>
+				</tr>
+				<tr>
+					<td colspan="5" class="row-header" style="background-color: #008800">
+						factor: 0.5 (default)
+					</td>
+				</tr>
+				<tr class="kerned">
+					<td class="sample mplus1p"></td>
+					<td class="sample notosans"></td>
+					<td class="sample sawarabimincho"></td>
+					<td class="sample meiryo"></td>
+					<td class="sample yugothic"></td>
+				</tr>
+				<tr>
+					<td colspan="5" class="row-header" style="background-color: #008800">
+						factor: 1.0
+					</td>
+				</tr>
+				<tr class="strong-kerned">
+					<td class="sample mplus1p"></td>
+					<td class="sample notosans"></td>
+					<td class="sample sawarabimincho"></td>
+					<td class="sample meiryo"></td>
+					<td class="sample yugothic"></td>
+				</tr>
+			</tbody>
+		</table>
+	</main>
+</body>
+</html>
