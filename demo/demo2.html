@@ -12,8 +12,15 @@
 	<link href="https://fonts.googleapis.com/earlyaccess/notosansjapanese.css" rel="stylesheet" />
 	<link href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css" rel="stylesheet" />
 	<style type="text/css">
+		h1 {
+			font-weight: inherit;
+			font-size: 1.5em;
+			line-height: 1.5em;
+		}
 		main {
 			font-family: "Mplus 1p", sans-serif;
+			font-style: normal;
+			font-weight: 400;
 			line-height: 1.5em;
 			white-space: pre-wrap;
 		}
@@ -33,7 +40,14 @@
 			}
 			WebFont.load({
 				custom: {
-					families: [ 'Mplus 1p:n4', 'Noto Sans Japanese:n4', 'Sawarabi Mincho:n4' ]
+					families: [
+						'Mplus 1p:n4', 'Mplus 1p:n7',
+						'Mplus 1p:i4', 'Mplus 1p:i7',
+						'Noto Sans Japanese:n4', 'Noto Sans Japanese:n7',
+						'Noto Sans Japanese:i4', 'Noto Sans Japanese:i7',
+						'Sawarabi Mincho:n4', 'Sawarabi Mincho:n7',
+						'Sawarabi Mincho:i4', 'Sawarabi Mincho:i7'
+					]
 				},
 				fontactive: function(familyName, fvd) {
 					if ($('main').css('font-family').indexOf(familyName) >= 0) {
@@ -43,6 +57,8 @@
 			});
 			$('input').on('click', function() {
 				$('main').css('font-family', '"' + $('input[name=font]:checked').val() + '", sans-serif');
+				$('main').css('font-style', $('input[name=style]:checked').val());
+				$('main').css('font-weight', $('input[name=weight]:checked').val());
 				update();
 			});
 		});
@@ -50,18 +66,29 @@
 </head>
 <body>
 <form>
-	<label><input type="radio" name="font" value="Mplus 1p" checked="checked">Mplus 1p</label>
-	<label><input type="radio" name="font" value="Noto Sans Japanese">Noto Sans Japanese</label>
-	<label><input type="radio" name="font" value="Sawarabi Mincho">Sawarabi Mincho</label>
-	<label><input type="radio" name="font" value="Meiryo">Meiryo</label>
-	<label><input type="radio" name="font" value="Yu Gothic">Yu Gothic</label>
-	<label><input type="radio" name="font" value="Hiragino Kaku Gothic ProN">Hiragino Kaku Gothic ProN</label>
+	<fieldset>
+		<legend>font-family</legend>
+		<label><input type="radio" name="font" value="Mplus 1p" checked="checked">Mplus 1p</label>
+		<label><input type="radio" name="font" value="Noto Sans Japanese">Noto Sans Japanese</label>
+		<label><input type="radio" name="font" value="Sawarabi Mincho">Sawarabi Mincho</label>
+		<label><input type="radio" name="font" value="Meiryo">Meiryo</label>
+		<label><input type="radio" name="font" value="Yu Gothic">Yu Gothic</label>
+		<label><input type="radio" name="font" value="Hiragino Kaku Gothic ProN">Hiragino Kaku Gothic ProN</label>
+	</fieldset>
+	<fieldset>
+		<legend>font-style</legend>
+		<label><input type="radio" name="style" value="normal" checked="checked">normal</label>
+		<label><input type="radio" name="style" value="italic">italic</label>
+	</fieldset>
+	<fieldset>
+		<legend>font-weight</legend>
+		<label><input type="radio" name="weight" value="400" checked="checked">400</label>
+		<label><input type="radio" name="weight" value="700">700</label>
+	</fieldset>
 	<div class="performance"></div>
 </form>
 <main>
-悦しき知識
-――停年講義（昭和三十三年九月十六日）
-深瀬基寛
+<h1>悦しき知識<br>――停年講義（昭和三十三年九月十六日）<br>深瀬基寛</h1>
 
 まえおき
 

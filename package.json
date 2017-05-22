@@ -1,6 +1,6 @@
 {
 	"name": "optical-kerning",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Optical Kerning jQuery Plugin",
 	"main": "optical-kerning.js",
 	"repository": {

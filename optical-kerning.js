@@ -228,7 +228,9 @@
 				text = '';
 			}
 		}
-		for (var node = element.firstChild; node !== null; node = node.nextSibling) {
+		var nextNode;
+		for (var node = element.firstChild; node !== null; node = nextNode) {
+			nextNode = node.nextSibling;
 			if (node.nodeType === 1) {
 				if (node.className === 'optical-kerning-applied') {
 					text += node.textContent;
@@ -277,7 +279,9 @@
 	}
 
 	function applyKerning(element, options) {
-		for (var node = element.firstChild; node !== null; node = node.nextSibling) {
+		var nextNode;
+		for (var node = element.firstChild; node !== null; node = nextNode) {
+			nextNode = node.nextSibling;
 			if (node.nodeType === 1) {
 				if (node.style.letterSpacing !== '') {
 					continue;
